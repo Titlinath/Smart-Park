@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Share Achievement - Eco Parking</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0F172A;
+      color: #F8FAFC;
+    }
+  </style>
+</head>
+
+<body class="p-4">
+    <!-- Top Navbar -->
+    <div class="w-full bg-gray-900 text-white flex justify-between items-center px-6 py-4 shadow-md rounded-xl mb-6">
+    <div class="text-xl font-bold text-accent">🌿 Share Achievement</div>
+    <div class="space-x-4">
+      <a href="Index.html" class="bg-accent hover:bg-sky-500 transition text-white px-4 py-2 rounded-lg shadow">🏠 Home</a>
+      <a href="Profile.html" class="bg-electricLime hover:bg-lime-400 transition text-gray-900 px-4 py-2 rounded-lg shadow">👤 Profile</a>
+    </div>
+  </div>
+  <!-- Profile Header -->
+  <div class="flex items-center space-x-4 mb-6">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEyGsNuDqyerfp3ctTVlyJGbehffbznDO4Vg&s" alt="User" class="rounded-full w-16 h-16">
+    <div>
+      <h2 class="text-2xl font-bold">Titli Nath</h2>
+      <p class="text-sm text-sky-400">Eco Parking Hero</p>
+    </div>
+  </div>
+
+  <!-- Grid Layout for Cards -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <!-- Smart Parking Summary -->
+    <div class="bg-gray-800 p-4 rounded-2xl shadow-lg">
+      <h3 class="text-xl font-semibold mb-2">Smart Parking Summary</h3>
+      <p>Total Eco Zone Hours: <span class="text-electricLime">6.5 hrs</span></p>
+      <p>Minimal Idle Zones: <span class="text-electricLime">4 times</span></p>
+    </div>
+
+    <!-- CO2 Saved -->
+    <div class="bg-gray-800 p-4 rounded-2xl shadow-lg">
+      <h3 class="text-xl font-semibold mb-2">CO₂ Saved</h3>
+      <p><span class="text-2xl text-electricLime font-bold">430g</span> of CO₂ saved this week</p>
+      <div class="h-2 bg-gray-700 mt-2 rounded-full">
+        <div class="h-2 bg-green-500 rounded-full animate-[grow_2s_ease-in-out_forwards]" style="width: 70%"></div>
+      </div>
+    </div>
+
+    <!-- Badges Earned -->
+    <div class="bg-gray-800 p-4 rounded-2xl shadow-lg">
+      <h3 class="text-xl font-semibold mb-2">Badges Earned</h3>
+      <ul class="space-y-2">
+        <li class="flex items-center"><span class="mr-2 text-yellow-400">🏅</span>No Idle Hero</li>
+        <li class="flex items-center"><span class="mr-2 text-green-300">🌱</span>Eco Driver</li>
+        <li class="flex items-center"><span class="mr-2 text-blue-300">🚶‍♀️</span>Short Walk Warrior</li>
+      </ul>
+    </div>
+
+    <!-- Parking Route History with Map -->
+    <div class="bg-gray-800 p-4 rounded-2xl shadow-lg">
+      <h3 class="text-xl font-semibold mb-2">Parking Route History</h3>
+      <iframe class="rounded-lg w-full h-48" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241316.6435453699!2d72.7411010067932!3d19.08219783903495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b63a8a7c6b23%3A0x6e03f4bfc11ab5a1!2sEco%20Friendly%20Parking!5e0!3m2!1sen!2sin!4v1644142736225!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!-- Share Achievement Card -->
+    <div class="bg-gray-800 text-softWhite rounded-2xl shadow-xl p-6 md:p-8 w-full md:max-w-xl mx-auto space-y-4 relative overflow-hidden animate-fade-in-up">
+    <!-- Top Message -->
+    <div class="text-xl md:text-2xl font-semibold text-electricLime flex items-center gap-2">
+      🎉 You Saved <span class="text-3xl font-bold">430g CO₂</span> This Week!
+    </div>
+  
+    <!-- Stat Breakdown -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
+      <div class="flex items-center gap-2">
+        🚗 <span>Eco Parking:</span> <strong class="text-accent">12 hrs</strong>
+      </div>
+      <div class="flex items-center gap-2">
+        🕒 <span>Idle Time Avoided:</span> <strong class="text-accent">3 hrs</strong>
+      </div>
+      <div class="flex items-center gap-2">
+        🚶‍♀️ <span>Walked Instead:</span> <strong class="text-accent">2.1 km</strong>
+      </div>
+      <div class="flex items-center gap-2">
+        🔥 <span>Eco Days in a Row:</span> <strong class="text-accent">4</strong>
+      </div>
+    </div>
+  
+    <!-- Badge Unlocked -->
+    <div class="bg-gray-700 rounded-xl px-4 py-3 flex items-center gap-3 shadow-inner animate-bounceIn">
+      🏅 <div>
+        <p class="text-sm text-gray-300">Badge Unlocked</p>
+        <p class="font-bold text-gold">"No Idle Hero"</p>
+      </div>
+    </div>
+  
+    <!-- Share Buttons -->
+    <div class="flex flex-wrap items-center gap-4 pt-4">
+      <button class="bg-accent hover:bg-sky-500 transition text-white px-4 py-2 rounded-xl shadow">Share on WhatsApp</button>
+      <button class="bg-gold hover:bg-yellow-400 transition text-dark px-4 py-2 rounded-xl shadow">Copy Link</button>
+      <button class="bg-softWhite hover:bg-gray-500 transition text-dark px-4 py-2 rounded-xl shadow">Download Card</button>
+    </div>
+
+  </div>
+  
+
+    <!-- Progress Timeline -->
+    <div class="bg-gray-800 p-4 rounded-2xl shadow-lg">
+      <h3 class="text-xl font-semibold mb-2">Progress Timeline</h3>
+      <canvas id="progressChart" height="150"></canvas>
+    </div>
+
+    <!-- Tips Section -->
+    <div class="bg-gray-800 p-4 rounded-2xl shadow-lg">
+      <h3 class="text-xl font-semibold mb-2">Eco-Parking Tips</h3>
+      <ul class="list-disc list-inside text-softWhite">
+        <li>Turn off engine when idle</li>
+        <li>Park 200m away and walk</li>
+        <li>Avoid peak traffic zones</li>
+      </ul>
+    </div>
+
+    <!-- Plan Greener Route CTA -->
+    <div class="bg-gray-800 p-4 rounded-2xl shadow-lg text-center">
+      <h3 class="text-xl font-semibold mb-2">Plan a Greener Route</h3>
+      <p class="text-sm mb-3">Find eco-friendly routes with less traffic and parking options.</p>
+      <a href="https://www.google.com/maps" target="_blank" class="bg-green-500 px-4 py-2 rounded-lg text-white hover:bg-green-600 transition">Find Route</a>
+    </div>
+
+  </div>
+
+  <!-- Chart.js Setup -->
+  <script>
+    const ctx = document.getElementById('progressChart').getContext('2d');
+    const progressChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+        datasets: [{
+          label: 'CO₂ Saved (g)',
+          data: [120, 180, 300, 430],
+          backgroundColor: 'rgba(163, 230, 53, 0.4)',
+          borderColor: '#A3E635',
+          borderWidth: 2,
+          tension: 0.4,
+          fill: true
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        },
+        plugins: {
+          legend: {
+            labels: {
+              color: '#F8FAFC'
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
