@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Goals - ParkSafe India</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #ffffff;
+    }
+
+    .goal-card {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .goal-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark px-4 py-3 d-flex justify-content-between">
+    <a href="index.html" class="navbar-brand text-white d-flex align-items-center gap-2">
+      <i class="bi bi-geo-alt-fill text-white"></i>
+      <strong>ParkSafe India</strong>
+    </a>
+    <a href="dashboard.html" class="btn btn-outline-light">Back to Dashboard</a>
+  </nav>
+
+  <div class="container py-5">
+    <h1 class="text-3xl font-bold mb-4">🎯 Your Parking Goals</h1>
+    <p class="text-lg mb-6 text-gray-300">Stay smart. Park safe. Earn rewards for better habits.</p>
+
+    <!-- Progress Overview -->
+    <div class="row mb-5">
+      <div class="col-md-4">
+        <div class="bg-black rounded-lg p-4 shadow-lg text-center">
+          <h5 class="text-xl font-semibold mb-2">Level</h5>
+          <p class="text-3xl font-bold text-blue-400">Smart Driver - 3</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="bg-black rounded-lg p-4 shadow-lg text-center">
+          <h5 class="text-xl font-semibold mb-2">Stars Earned</h5>
+          <p class="text-3xl font-bold text-yellow-400">⭐ 18</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="bg-black rounded-lg p-4 shadow-lg text-center">
+          <h5 class="text-xl font-semibold mb-2">Goals</h5>
+          <p class="text-3xl font-bold text-green-400">4 / 6</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Goals Cards -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Goal 1 -->
+      <div class="bg-black p-4 rounded-lg goal-card">
+        <h3 class="text-xl font-semibold">🅿️ Park in registered zones</h3>
+        <p class="text-gray-400">5 times this month</p>
+        <div class="progress my-2">
+          <div class="progress-bar bg-success" style="width: 60%">3/5</div>
+        </div>
+        <button class="btn btn-outline-info w-full">Track Progress</button>
+      </div>
+
+      <!-- Goal 2 -->
+      <div class="bg-black p-4 rounded-lg goal-card">
+        <h3 class="text-xl font-semibold">⛽ Avoid unnecessary trips</h3>
+        <p class="text-gray-400">For 7 days</p>
+        <div class="progress my-2">
+          <div class="progress-bar bg-primary" style="width: 100%">Completed</div>
+        </div>
+        <button class="btn btn-success w-full">Completed</button>
+      </div>
+
+      <!-- Goal 3 -->
+      <div class="bg-black p-4 rounded-lg goal-card">
+        <h3 class="text-xl font-semibold">📍 Use GPS locator</h3>
+        <p class="text-gray-400">10 times</p>
+        <div class="progress my-2">
+          <div class="progress-bar bg-warning" style="width: 70%">7/10</div>
+        </div>
+        <button class="btn btn-outline-warning w-full">Track</button>
+      </div>
+
+      <!-- Goal 4 -->
+      <div class="bg-black p-4 rounded-lg goal-card">
+        <h3 class="text-xl font-semibold">🚫 Avoid penalties</h3>
+        <p class="text-gray-400">15 days</p>
+        <div class="progress my-2">
+          <div class="progress-bar bg-danger" style="width: 66%">10/15</div>
+        </div>
+        <button class="btn btn-outline-danger w-full">Update</button>
+      </div>
+
+      <!-- Goal 5 -->
+      <div class="bg-black p-4 rounded-lg goal-card">
+        <h3 class="text-xl font-semibold">🎉 Share Achievements</h3>
+        <p class="text-gray-400">Share with 3 friends</p>
+        <div class="progress my-2">
+          <div class="progress-bar bg-info" style="width: 33%">1/3</div>
+        </div>
+        <button class="btn btn-outline-info w-full">Share Now</button>
+      </div>
+    </div>
+
+    <!-- Daily Tip -->
+    <div class="mt-8 bg-blue-950 p-4 rounded-lg shadow">
+      <h4 class="text-lg font-bold mb-2">🚦 Daily Tip</h4>
+      <p class="text-gray-300">Avoid fines: Park only in app-suggested zones and stay updated via GPS.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-12 text-center text-white border-t border-gray-600 pt-6">
+      <div class="flex justify-center space-x-4 text-2xl mb-2">
+        <a href="#" class="text-blue-400 hover:text-white"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="text-pink-400 hover:text-white"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="text-cyan-400 hover:text-white"><i class="bi bi-twitter"></i></a>
+      </div>
+      <p class="text-sm">&copy; 2025 ParkSafe India. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</body>
+
+</html>

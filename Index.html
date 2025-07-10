@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ParkSafe India - Smart Parking</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0F172A',
+            accent: '#38BDF8',
+            softWhite: '#F8FAFC',
+            electricLime: '#A3E635',
+            dark: '#1E293B'
+          },
+          fontFamily: {
+            sans: ['Segoe UI', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-softWhite font-sans text-dark">
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-6 py-4 bg-primary text-softWhite shadow-md sticky top-0 z-50">
+    <h1 class="text-2xl font-bold flex items-center"><i class="bi bi-geo-alt-fill mr-2"></i>ParkSafe India</h1>
+    <div class="space-x-4">
+      <a href="Dashboard.html" class="bg-[#213054] text-softWhite px-4 py-2 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition">Home</a>
+      <a href="#" class="bg-[#213054] text-softWhite px-4 py-2 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition">Find Parking</a>
+      <a href="Festive.html" class="bg-[#213054] text-softWhite px-4 py-2 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition">Festival Mode</a>
+      <a href="Bookslot.html" class="bg-[#213054] text-softWhite px-4 py-2 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition">Book Slot</a>
+      <a href="Log.html" class="bg-[#213054] text-softWhite px-4 py-2 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition">Admin Login</a>
+      <a href="notifications.html" class="relative bg-[#213054] text-softWhite px-4 py-2 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition">
+        <i class="bi bi-bell text-xl"></i>
+        <span class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs px-1">3</span>
+      </a>
+      <a href="Profile.html" class="bg-[#213054] text-softWhite px-4 py-2 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition">
+        <i class="bi bi-person-circle text-xl"></i>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="text-center py-20 px-6 bg-[url('c:\Users\titli\Downloads\car.jpg')] bg-cover bg-center text-white">
+    <div class="bg-black bg-opacity-60 p-8 rounded-xl inline-block animate-fadeIn">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Find Parking, Not Problems.</h2>
+      <p class="text-lg md:text-xl mb-6">Smart parking solutions for every street, especially during festivals.</p>
+      <div class="space-x-4">
+        <button class="bg-accent text-dark px-6 py-3 rounded-full font-semibold hover:scale-105 transition"><i class="bi bi-search"></i> Find Parking Near Me</button>
+        <a href="Bookslot.html" class="bg-electricLime text-dark px-6 py-3 rounded-full font-semibold hover:scale-105 transition"><i class="bi bi-calendar-plus"></i> Book a Slot</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16 px-6 bg-white text-center">
+    <h3 class="text-3xl font-bold mb-12">Why Choose ParkSafe</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+      
+      </div>
+      <div class="shadow-lg p-6 rounded-xl hover:shadow-xl transition">
+        <i class="bi bi-phone text-3xl text-accent mb-2"></i>
+        <h4 class="text-xl font-semibold mb-2">Mobile Friendly</h4>
+        <p>Access everything easily from your phone.</p>
+      </div>
+      <div class="shadow-lg p-6 rounded-xl hover:shadow-xl transition">
+        <i class="bi bi-credit-card-2-front text-3xl text-accent mb-2"></i>
+        <h4 class="text-xl font-semibold mb-2">Easy Payments</h4>
+        <p>UPI, PayTM, cards — we support it all.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Festival Mode Section -->
+  <section class="py-16 px-6 bg-primary text-softWhite text-center">
+    <h3 class="text-3xl font-bold mb-6">🎉 Festival Mode</h3>
+    <p class="mb-6">Stay safe during peak seasons. Activate special parking maps for Durga Puja, Diwali, and more.</p>
+    <button class="bg-accent text-dark px-6 py-3 rounded-full font-semibold hover:scale-105 transition"><i class="bi bi-map-fill"></i> Activate Festival Map</button>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="py-16 px-6 text-center bg-white">
+    <h3 class="text-3xl font-bold mb-12">How ParkSafe Works</h3>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div><i class="bi bi-search text-3xl text-accent mb-2"></i><p>Search Location</p></div>
+      <div><i class="bi bi-pin-map text-3xl text-accent mb-2"></i><p>View Spots</p></div>
+      <div><i class="bi bi-calendar-plus text-3xl text-accent mb-2"></i><p>Reserve or Drive-in</p></div>
+      <div><i class="bi bi-wallet2 text-3xl text-accent mb-2"></i><p>Pay & Park</p></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-softWhite py-10 px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div>
+        <h4 class="text-xl font-semibold mb-2">Contact</h4>
+        <p>Email: parksafeindia@gmail.com</p>
+        <p>Phone: +91-9876543210</p>
+      </div>
+      <div>
+        <h4 class="text-xl font-semibold mb-2">Quick Links</h4>
+        <ul>
+          <li><a href="#" class="hover:text-accent">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-accent">Terms of Use</a></li>
+          <li><a href="#" class="hover:text-accent">Help</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xl font-semibold mb-2">Follow Us</h4>
+        <div class="flex space-x-4">
+          <a href="#" class="text-xl hover:text-accent"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-xl hover:text-accent"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-xl hover:text-accent"><i class="bi bi-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    <p class="text-center mt-6">&copy; 2025 ParkSafe India. All rights reserved.</p>
+  </footer>
+</body>
+</html>

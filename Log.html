@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ParkSafe | Sign Up & Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <style>
+    /* Color Palette override */
+    :root {
+      --primary: #0F172A;
+      --accent: #38BDF8;
+      --softWhite: #F8FAFC;
+      --electricLime: #A3E635;
+      --dark: #1E293B;
+    }
+
+    .glass {
+      background-color: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .input-style {
+      @apply w-full px-4 py-2 rounded-md bg-white/5 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-accent transition;
+    }
+  </style>
+</head>
+<body class="bg-[var(--primary)] min-h-screen text-[var(--softWhite)] font-sans flex flex-col">
+
+  <!-- Navbar -->
+  <nav class="w-full px-6 py-4 flex justify-between items-center bg-[var(--dark)] shadow">
+    <h1 class="text-xl font-bold text-[var(--accent)] flex items-center">
+      <i class="bi bi-car-front-fill mr-2"></i>ParkSafe India
+    </h1>
+    <a href="Dashboard.html" class="text-sm hover:text-[var(--electricLime)] transition">← Back to Home</a>
+  </nav>
+
+  <!-- Forms Section -->
+  <div class="flex flex-col md:flex-row justify-center items-start md:items-center px-6 py-10 gap-10">
+
+    <!-- Sign Up Card -->
+    <div class="glass w-full md:w-[500px] p-8 rounded-xl shadow-lg border border-white/10 animate-fade-in">
+      <h2 class="text-2xl font-semibold text-[var(--electricLime)] mb-4 flex items-center"><i class="bi bi-person-plus-fill mr-2"></i>Sign Up</h2>
+      <form class="space-y-4">
+        <input type="text" placeholder="Full Name" class="input-style" required />
+        <input type="email" placeholder="Email" class="input-style" required />
+        <input type="tel" placeholder="Phone Number" class="input-style" required />
+        <input type="text" placeholder="Vehicle Number" class="input-style" required />
+        <select class="input-style" required>
+          <option disabled selected>Select Vehicle Type</option>
+          <option>Car</option>
+          <option>Bike</option>
+          <option>SUV</option>
+        </select>
+        <input type="text" placeholder="City" class="input-style" required />
+        <input type="password" placeholder="Password" class="input-style" required />
+        <input type="password" placeholder="Confirm Password" class="input-style" required />
+        <button class="w-full bg-[var(--electricLime)] text-black py-2 rounded font-bold hover:bg-lime-400 transition">Create Account</button>
+      </form>
+    </div>
+
+    <!-- Sign In Card -->
+    <div class="glass w-full md:w-[400px] p-8 rounded-xl shadow-lg border border-white/10 animate-fade-in">
+      <h2 class="text-2xl font-semibold text-[var(--accent)] mb-4 flex items-center"><i class="bi bi-box-arrow-in-right mr-2"></i>Sign In</h2>
+      <form class="space-y-4">
+        <select id="userType" class="input-style">
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+        <input type="email" placeholder="Email" class="input-style" required />
+        <input type="password" placeholder="Password" class="input-style" required />
+        <button type="button" onclick="login()" class="w-full bg-[var(--accent)] text-black py-2 rounded font-bold hover:bg-sky-400 transition">Sign In</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Alert -->
+  <div id="alertBox" class="fixed top-6 right-6 hidden px-4 py-3 rounded shadow-lg z-50 text-white text-sm"></div>
+
+  <!-- Animations & Alert JS -->
+  <style>
+    .animate-fade-in {
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  <script>
+    function showAlert(message, type = 'error') {
+      const box = document.getElementById('alertBox');
+      box.className = `fixed top-6 right-6 px-4 py-3 rounded shadow-lg z-50 text-white text-sm ${
+        type === 'error' ? 'bg-red-600' : 'bg-green-600'
+      }`;
+      box.innerText = message;
+      box.classList.remove('hidden');
+      setTimeout(() => box.classList.add('hidden'), 3000);
+    }
+
+    function login() {
+      const type = document.getElementById('userType').value;
+      const pass = document.querySelectorAll('input[type="password"]')[0].value;
+
+      if ((type === 'admin' && pass === 'admin') || (type === 'user' && pass === 'user123')) {
+        showAlert('✅ Login Successful!', 'success');
+        setTimeout(() => {
+          window.location.href = "dashboard.html";
+        }, 1500);
+      } 
+      else {
+        showAlert('❌ Wrong User Credentials!');
+        setTimeout(() => {
+          window.location.href = "dashboard.html";
+        }, 1500);
+      }
+    }
+  </script>
+</body>
+</html>

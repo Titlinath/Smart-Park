@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan a Greener Route</title>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #0F172A;
+            color: #F8FAFC;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #0F172A;
+            color: #F8FAFC;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #F8FAFC;
+            text-decoration: none;
+            font-size: 16px;
+            margin-left: 15px;
+        }
+
+        /* Main Section */
+        .container {
+            margin: 20px;
+        }
+
+        .search-box {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .search-box input, .search-box button {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #38BDF8;
+            font-size: 16px;
+            width: 45%;
+        }
+
+        .search-box button {
+            background-color: #38BDF8;
+            color: #F8FAFC;
+            cursor: pointer;
+        }
+
+        .route-info {
+            background-color: #1E293B;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .route-info h2 {
+            color: #A3E635;
+            font-size: 24px;
+        }
+
+        .route-info p {
+            color: #F8FAFC;
+            font-size: 16px;
+        }
+
+        .map-container {
+            margin-top: 20px;
+            height: 400px;
+            border-radius: 12px;
+        }
+
+        /* Greener Route Badge */
+        .greener-badge {
+            background-color: #A3E635;
+            padding: 5px 10px;
+            border-radius: 20px;
+            color: #0F172A;
+            font-size: 14px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .footer {
+            background-color: #0F172A;
+            color: #F8FAFC;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="text-center">Plan a Greener Route</h1>
+        <p class="text-center">Find eco-friendly routes with less traffic and parking options.</p>
+
+        <!-- Search Box -->
+        <div class="search-box">
+            <input type="text" id="start-location" placeholder="Enter Start Location">
+            <input type="text" id="end-location" placeholder="Enter Destination">
+            <button onclick="findRoute()">Find Route</button>
+        </div>
+
+        <!-- Route Info Card -->
+        <div class="route-info" id="route-info" style="display:none;">
+            <h2>Route Information</h2>
+            <p><strong>Distance:</strong> 10.5 km</p>
+            <p><strong>Time:</strong> 25 minutes</p>
+            <p><strong>CO₂ Saved:</strong> 150g</p>
+            <div class="greener-badge">Eco-Friendly Route</div>
+        </div>
+
+        <!-- Map Container -->
+        <div id="map" class="map-container"></div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 Greener Routes. All rights reserved.</p>
+    </div>
+
+    <script>
+        // Initialize Google Maps
+        let map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 22.5726, lng: 88.3639 }, // Default: Kolkata
+                zoom: 12,
+            });
+        }
+
+        // Function to find the route
+        function findRoute() {
+            const startLocation = document.getElementById("start-location").value;
+            const endLocation = document.getElementById("end-location").value;
+
+            if (startLocation && endLocation) {
+                // You would integrate routing APIs (Google Directions API or any other) here
+
+                // For now, show route info and map
+                document.getElementById("route-info").style.display = "block";
+
+                // Display the map with start and end markers
+                const geocoder = new google.maps.Geocoder();
+                geocoder.geocode({ 'address': startLocation }, (results, status) => {
+                    if (status === 'OK') {
+                        map.setCenter(results[0].geometry.location);
+                        new google.maps.Marker({
+                            map: map,
+                            position: results[0].geometry.location,
+                            title: "Start Location",
+                        });
+                    }
+                });
+                
+                geocoder.geocode({ 'address': endLocation }, (results, status) => {
+                    if (status === 'OK') {
+                        new google.maps.Marker({
+                            map: map,
+                            position: results[0].geometry.location,
+                            title: "Destination",
+                        });
+                    }
+                });
+            } else {
+                alert("Please enter both start and destination locations.");
+            }
+        }
+
+        // Load map after the page is ready
+        window.onload = initMap;
+    </script>
+</body>
+</html>

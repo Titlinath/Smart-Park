@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartPark - Book a Slot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0F172A',
+            accent: '#38BDF8',
+            softWhite: '#F8FAFC',
+            electricLime: '#A3E635',
+            gold: '#FFD700',
+            dark: '#1E293B'
+          },
+          fontFamily: {
+            sans: ['Segoe UI', 'sans-serif']
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    @keyframes fade-in {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in { animation: fade-in 1s ease-in-out; }
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+</head>
+
+<body class="bg-primary text-softWhite font-sans">
+  <div class="max-w-7xl mx-auto p-4 animate-fade-in">
+    
+    <!-- Header -->
+    <header class="flex justify-between items-center mb-6">
+      <h1 class="text-3xl font-bold text-electricLime">SmartPark</h1>
+      <div class="space-x-3">
+        <a href="index.html">
+          <button class="bg-gold hover:bg-white text-black px-4 py-2 rounded-lg font-semibold transition-all">Back to Home</button>
+        </a>
+        <a href="Log.html">
+          <button class="bg-accent hover:bg-electricLime text-dark px-4 py-2 rounded-lg font-semibold transition-all">Admin Login</button>
+        </a>
+      </div>
+    </header>
+
+    <!-- Map + Tags -->
+    <section class="mb-8">
+      <div class="flex justify-between items-center mb-2">
+        <h2 class="text-xl font-semibold">Nearby Parking Map</h2>
+        <div class="flex gap-2">
+          <span class="bg-electricLime text-dark text-xs px-2 py-1 rounded">Live Availability</span>
+          <span class="bg-gold text-black text-xs px-2 py-1 rounded">4.5 ★ Ratings</span>
+        </div>
+      </div>
+      <div class="rounded-xl overflow-hidden shadow-lg border border-accent">
+        <div id="map" class="w-full h-[400px]"></div>
+      </div>
+      <p class="mt-2 text-sm italic text-gray-300">Map powered by Google Maps.</p>
+    </section>
+
+    <!-- Festival Notifications -->
+    <section class="mb-8">
+      <label class="block text-lg mb-2">Check Upcoming Festival Notifications:</label>
+      <select id="monthSelect" class="px-4 py-2 rounded-lg text-dark">
+        <option value="">Select Month</option>
+        <option value="jan">January</option>
+        <option value="feb">February</option>
+        <option value="mar">March</option>
+        <option value="apr">April</option>
+        <option value="may">May</option>
+        <option value="jun">June</option>
+        <option value="jul">July</option>
+        <option value="aug">August</option>
+        <option value="sep">September</option>
+        <option value="oct">October</option>
+        <option value="nov">November</option>
+        <option value="dec">December</option>
+      </select>
+      <ul id="festivalList" class="mt-2 list-disc list-inside text-electricLime"></ul>
+    </section>
+
+    <!-- Parking Spots -->
+    <section class="mb-6">
+      <h2 class="text-2xl font-bold mb-4">Nearby Parking Spots</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-dark rounded-xl p-4 shadow-md hover:scale-105 transition-all">
+          <h3 class="text-xl font-semibold text-electricLime">Park Street Plaza</h3>
+          <p class="text-softWhite mt-1">300m away - ₹30/hr</p>
+          <div class="text-sm mt-2">✅ CCTV • ✅ Covered • ⭐ 4.5</div>
+          <button class="mt-4 bg-accent text-dark px-4 py-2 rounded-lg w-full">Book Slot</button>
+        </div>
+        
+        <div class="bg-dark rounded-xl p-4 shadow-md hover:scale-105 transition-all">
+          <h3 class="text-xl font-semibold text-electricLime">Victoria Memorial</h3>
+          <p class="text-softWhite mt-1">500m away - ₹25/hr</p>
+          <div class="text-sm mt-2">✅ CCTV • ✅ Open Air • ⭐ 4.0</div>
+          <button class="mt-4 bg-accent text-dark px-4 py-2 rounded-lg w-full">Book Slot</button>
+        </div>
+
+        <div class="bg-dark rounded-xl p-4 shadow-md hover:scale-105 transition-all">
+          <h3 class="text-xl font-semibold text-electricLime">Howrah Bridge Parking</h3>
+          <p class="text-softWhite mt-1">1km away - ₹20/hr</p>
+          <div class="text-sm mt-2">✅ CCTV • ✅ Open Air • ⭐ 4.2</div>
+          <button class="mt-4 bg-accent text-dark px-4 py-2 rounded-lg w-full">Book Slot</button>
+        </div>
+
+        <div class="bg-dark rounded-xl p-4 shadow-md hover:scale-105 transition-all">
+          <h3 class="text-xl font-semibold text-electricLime">New Market Parking</h3>
+          <p class="text-softWhite mt-1">800m away - ₹35/hr</p>
+          <div class="text-sm mt-2">✅ CCTV • ✅ Covered • ⭐ 4.7</div>
+          <button class="mt-4 bg-accent text-dark px-4 py-2 rounded-lg w-full">Book Slot</button>
+        </div>
+
+        <div class="bg-dark rounded-xl p-4 shadow-md hover:scale-105 transition-all">
+          <h3 class="text-xl font-semibold text-electricLime">Salt Lake Sector V</h3>
+          <p class="text-softWhite mt-1">2km away - ₹40/hr</p>
+          <div class="text-sm mt-2">✅ CCTV • ✅ Covered • ⭐ 4.8</div>
+          <button class="mt-4 bg-accent text-dark px-4 py-2 rounded-lg w-full">Book Slot</button>
+        </div>
+
+        <div class="bg-dark rounded-xl p-4 shadow-md hover:scale-105 transition-all">
+          <h3 class="text-xl font-semibold text-electricLime">Esplanade Parking</h3>
+          <p class="text-softWhite mt-1">1.5km away - ₹30/hr</p>
+          <div class="text-sm mt-2">✅ CCTV • ✅ Open Air • ⭐ 4.6</div>
+          <button class="mt-4 bg-accent text-dark px-4 py-2 rounded-lg w-full">Book Slot</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Suggestions Section -->
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold mb-2">Suggestions for Smart Parking</h2>
+      <ul class="list-disc list-inside text-softWhite space-y-1">
+        <li>Use reserved slots during peak hours.</li>
+        <li>Consider carpooling during festival days.</li>
+        <li>Track usage to save money weekly.</li>
+        <li>Report blocked entries for better space mgmt.</li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-12 text-center text-sm text-softWhite border-t pt-4 border-accent">
+      &copy; 2025 SmartPark. Built with 💚 to reduce parking chaos.
+    </footer>
+  </div>
+
+  <script>
+    const festivalData = {
+      jan: ["Jan 1 - New Year", "Jan 13 - Lohri", "Jan 14 - Pongal"],
+      feb: ["Feb 14 - Vasant Panchami", "Feb 21 - Maha Shivratri"],
+      mar: ["Mar 8 - Holi", "Mar 25 - Ram Navami"],
+      apr: ["Apr 14 - Baisakhi", "Apr 18 - Good Friday"],
+      may: ["May 3 - Eid", "May 16 - Buddha Purnima"],
+      jun: ["Jun 7 - Ganga Dussehra"],
+      jul: ["Jul 9 - Rath Yatra", "Jul 21 - Bakrid"],
+      aug: ["Aug 15 - Independence Day", "Aug 19 - Raksha Bandhan", "Aug 26 - Janmashtami"],
+      sep: ["Sep 10 - Ganesh Chaturthi", "Sep 17 - Vishwakarma Puja"],
+      oct: ["Oct 2 - Gandhi Jayanti", "Oct 12 - Dussehra", "Oct 22 - Karwa Chauth"],
+      nov: ["Nov 1 - Diwali", "Nov 8 - Bhai Dooj", "Nov 15 - Guru Nanak Jayanti"],
+      dec: ["Dec 25 - Christmas", "Dec 31 - New Year's Eve"]
+    };
+
+    document.getElementById("monthSelect").addEventListener("change", function () {
+      const month = this.value;
+      const festivalList = document.getElementById("festivalList");
+      festivalList.innerHTML = "";
+
+      if (festivalData[month]) {
+        const sorted = festivalData[month]; // In real backend, sort by upcoming
+        sorted.forEach(festival => {
+          const li = document.createElement("li");
+          li.textContent = festival;
+          festivalList.appendChild(li);
+        });
+      }
+    });
+
+    function initMap() {
+      const center = { lat: 22.5726, lng: 88.3639 }; // Kolkata example
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 14,
+        center: center,
+        mapTypeControl: false,
+        streetViewControl: false,
+        fullscreenControl: false
+      });
+
+      new google.maps.Marker({
+        position: center,
+        map: map,
+        title: "Main Parking Spot"
+      });
+    }
+
+    window.onload = initMap;
+  </script>
+</body>
+</html>
