@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reports & History</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <style>
+    body {
+      background: linear-gradient(to right, #0f172a, #1e293b);
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .calendar-container {
+      background-color: #1f2937;
+      border-radius: 1rem;
+      padding: 1rem;
+    }
+    #calendar {
+      max-width: 100%;
+      height: 400px;
+    }
+  </style>
+</head>
+
+<body class="p-6">
+    <!-- Top Navbar -->
+  <nav class="w-full flex items-center justify-between bg-[#1e293b] p-4 rounded-xl shadow-md mb-6">
+    <div class="text-white text-xl font-bold tracking-wide">SmartPark Reports</div>
+    <a href="Dashboard.html" class="bg-electricLime hover:bg-lime-300 text-black font-semibold px-4 py-2 rounded-lg transition duration-300">
+      Go to Dashboard
+    </a>
+  </nav>
+
+  <!-- Header -->
+  <header class="mb-8">
+    <h1 class="text-3xl font-bold text-electricLime animate-fadeInDown">Reports & History</h1>
+    <p class="text-gray-300">Track your parking usage, history and savings.</p>
+  </header>
+
+  <!-- Summary Cards -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+    <div class="bg-dark p-6 rounded-xl shadow-xl text-white animate-fadeInUp">
+      <div class="flex items-center gap-4">
+        <i class="bi bi-currency-rupee text-electricLime text-3xl"></i>
+        <div>
+          <h3 class="text-xl font-semibold">This Month's Savings</h3>
+          <p class="text-sm text-gray-400">You saved ₹1,250 on parking!</p>
+        </div>
+      </div>
+    </div>
+    <div class="bg-dark p-6 rounded-xl shadow-xl text-white animate-fadeInUp">
+      <div class="flex items-center gap-4">
+        <i class="bi bi-speedometer text-electricLime text-3xl"></i>
+        <div>
+          <h3 class="text-xl font-semibold">Arrival Speed</h3>
+          <p class="text-sm text-gray-400">You arrived 12 min faster than expected!</p>
+        </div>
+      </div>
+    </div>
+    <div class="bg-dark p-6 rounded-xl shadow-xl text-white animate-fadeInUp">
+      <div class="flex items-center gap-4">
+        <i class="bi bi-graph-up-arrow text-electricLime text-3xl"></i>
+        <div>
+          <h3 class="text-xl font-semibold">Spending Forecast</h3>
+          <p class="text-sm text-gray-400">₹500 more might be saved next month.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Graph Panel -->
+  <div class="bg-dark p-4 rounded-xl shadow-xl mb-10 animate-fadeInUp">
+    <h2 class="text-lg font-semibold mb-4 text-white">Monthly Booking Trends</h2>
+    <div class="h-48">
+      <canvas id="usageChart" class="w-full h-full"></canvas>
+    </div>
+  </div>
+
+  <!-- Calendar View -->
+  <div class="calendar-container shadow-xl animate-fadeInUp mt-6">
+    <h2 class="text-lg font-semibold mb-4 text-white">Booking Calendar</h2>
+    <div id='calendar'></div>
+  </div>
+
+  <!-- Comparison Chart -->
+  <div class="bg-dark p-4 rounded-xl shadow-xl mb-10 animate-fadeInUp">
+    <h2 class="text-lg font-semibold mb-4 text-white">Last Month vs This Month</h2>
+    <div class="h-48">
+      <canvas id="compareChart" class="w-full h-full"></canvas>
+    </div>
+  </div>
+
+  <!-- Goals Tracker -->
+<div class="bg-dark p-6 rounded-xl shadow-xl text-white animate-fadeInUp mb-8">
+    <h2 class="text-lg font-semibold mb-4 text-white">Your Monthly Goal</h2>
+    <p class="mb-2 text-gray-300">Save ₹2000 on parking</p>
+    <div class="w-full bg-gray-700 rounded-full h-4">
+      <div class="bg-electricLime h-4 rounded-full" style="width: 62.5%;"></div>
+    </div>
+    <p class="text-sm text-gray-400 mt-2">₹1250 saved — 62.5% of goal</p>
+  </div>
+  
+  
+
+  <script>
+    const ctx = document.getElementById('usageChart');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        datasets: [{
+          label: 'Bookings',
+          data: [3, 5, 7, 8, 6, 9, 11],
+          borderColor: '#00ffcc',
+          backgroundColor: 'rgba(0,255,204,0.1)',
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+
+    const compareCtx = document.getElementById('compareChart');
+    new Chart(compareCtx, {
+    type: 'bar',
+    data: {
+    labels: ['Bookings', 'Time Saved (min)', 'Money Saved (₹)'],
+    datasets: [
+      {
+        label: 'Last Month',
+        data: [6, 50, 900],
+        backgroundColor: '#64748b'
+      },
+      {
+        label: 'This Month',
+        data: [9, 75, 1250],
+        backgroundColor: '#00ffcc'
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'top' }
+    }
+  }
+});
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const calendarEl = document.getElementById('calendar');
+      const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        events: [
+          {
+            title: 'Booked: ABC Garage',
+            start: '2025-04-06',
+            color: '#00ffcc'
+          },
+          {
+            title: 'Reserved: XYZ Street',
+            start: '2025-04-12',
+            color: '#99ff00'
+          },
+          {
+            title: 'Used: Green Parking',
+            start: '2025-04-18',
+            color: '#33ccff'
+          }
+        ]
+      });
+      calendar.render();
+    });
+  </script>
+</body>
+
+</html>

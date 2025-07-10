@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manage Parking Spot | ParkSafe India</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .button-3d {
+      transform: perspective(500px) rotateX(5deg);
+      box-shadow: 0 10px 15px -3px rgba(255, 215, 0, 0.3);
+    }
+    .parking-spot:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white font-sans">
+
+  <!-- Navbar -->
+  <nav class="flex items-center justify-between px-6 py-4 bg-gray-950 shadow-md">
+    <div class="text-xl font-bold text-gold-500">🚗 ParkSafe India</div>
+    <div>
+      <a href="dashboard.html" class="button-3d bg-yellow-500 hover:bg-yellow-400 text-black px-5 py-2 rounded-lg font-semibold transition duration-300">
+        Dashboard
+      </a>
+    </div>
+  </nav>
+
+  <!-- Parking Overview -->
+  <section class="px-6 py-8">
+    <h2 class="text-3xl font-bold mb-6 text-gold-400">Manage Parking Spots</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="bg-gray-800 p-4 rounded-xl shadow-md text-center">
+        <h3 class="text-xl text-cyan-400">Available</h3>
+        <p class="text-4xl font-bold animate-pulse text-emerald-400">12</p>
+      </div>
+      <div class="bg-gray-800 p-4 rounded-xl shadow-md text-center">
+        <h3 class="text-xl text-blue-300">Booked</h3>
+        <p class="text-4xl font-bold animate-bounce text-yellow-400">5</p>
+      </div>
+      <div class="bg-gray-800 p-4 rounded-xl shadow-md text-center">
+        <h3 class="text-xl text-rose-300">Reserved</h3>
+        <p class="text-4xl font-bold animate-ping text-red-400">3</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Layout -->
+  <section class="px-6 py-8">
+    <h3 class="text-2xl font-semibold text-cyan-300 mb-4">Interactive Parking Map</h3>
+    <div class="grid grid-cols-4 gap-4 max-w-4xl mx-auto">
+      <!-- Dummy Spot Boxes -->
+      <div class="parking-spot bg-emerald-500 p-6 rounded-lg text-center">A1<br><span class="text-xs">Available</span></div>
+      <div class="parking-spot bg-yellow-400 p-6 rounded-lg text-center text-black">A2<br><span class="text-xs">Booked</span></div>
+      <div class="parking-spot bg-rose-500 p-6 rounded-lg text-center">A3<br><span class="text-xs">Reserved</span></div>
+      <div class="parking-spot bg-emerald-500 p-6 rounded-lg text-center">A4<br><span class="text-xs">Available</span></div>
+      <div class="parking-spot bg-yellow-400 p-6 rounded-lg text-center text-black">B1<br><span class="text-xs">Booked</span></div>
+      <div class="parking-spot bg-emerald-500 p-6 rounded-lg text-center">B2<br><span class="text-xs">Available</span></div>
+      <div class="parking-spot bg-rose-500 p-6 rounded-lg text-center">B3<br><span class="text-xs">Reserved</span></div>
+      <div class="parking-spot bg-emerald-500 p-6 rounded-lg text-center">B4<br><span class="text-xs">Available</span></div>
+    </div>
+  </section>
+
+  <!-- Email Toggler -->
+  <section class="px-6 py-8">
+    <div class="bg-gray-800 p-6 rounded-xl flex justify-between items-center max-w-3xl mx-auto">
+      <div>
+        <h4 class="text-xl font-semibold text-blue-300">Email Notifications</h4>
+        <p class="text-sm text-gray-300">Enable auto alerts for parking status updates.</p>
+        <p class="text-xs mt-1 text-gray-400">Email: <span class="text-yellow-400">chipichipichapachapa3@gmail.com</span></p>
+      </div>
+      <label class="relative inline-flex items-center cursor-pointer">
+        <input type="checkbox" id="emailToggle" class="sr-only peer">
+        <div class="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:bg-emerald-400 relative transition-all duration-300">
+          <span class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition peer-checked:translate-x-5 transform transition duration-300"></span>
+        </div>
+      </label>
+    </div>
+  </section>
+
+  <!-- Manage Spot Form -->
+  <section class="px-6 py-8">
+    <div class="bg-gray-800 p-6 rounded-xl max-w-3xl mx-auto">
+      <h4 class="text-xl text-cyan-300 font-semibold mb-4">Add / Update Parking Spot</h4>
+      <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input type="text" placeholder="Spot ID (e.g., A5)" class="p-2 rounded bg-gray-700 placeholder-gray-400 text-white">
+        <select class="p-2 rounded bg-gray-700 text-white">
+          <option>Status</option>
+          <option>Available</option>
+          <option>Booked</option>
+          <option>Reserved</option>
+        </select>
+        <input type="text" placeholder="Vehicle Number (optional)" class="p-2 rounded bg-gray-700 placeholder-gray-400 text-white">
+        <button type="submit" class="bg-gold-500 text-black py-2 px-4 rounded hover:bg-yellow-400 transition">Save Spot</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Assign Spot -->
+  <section class="px-6 py-8">
+    <div class="bg-gray-800 p-6 rounded-xl max-w-3xl mx-auto">
+      <h4 class="text-xl text-blue-300 font-semibold mb-4">Assign Spot to User</h4>
+      <form class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <input type="text" placeholder="User ID" class="p-2 rounded bg-gray-700 text-white placeholder-gray-400">
+        <input type="text" placeholder="Vehicle No." class="p-2 rounded bg-gray-700 text-white placeholder-gray-400">
+        <select class="p-2 rounded bg-gray-700 text-white">
+          <option>Select Spot</option>
+          <option>A1</option>
+          <option>A2</option>
+          <option>B1</option>
+        </select>
+        <button type="submit" class="col-span-1 md:col-span-3 bg-yellow-500 text-black py-2 px-4 rounded hover:bg-yellow-400 transition">Assign</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-950 mt-8 py-6 text-center text-gray-300">
+    <p>Contact: <a href="mailto:parksafeindia@gmail.com" class="text-yellow-400 hover:underline">parksafeindia@gmail.com</a></p>
+    <div class="flex justify-center gap-4 mt-2">
+      <a href="#" class="text-blue-400 hover:text-blue-500"><i class="fab fa-facebook"></i> Facebook</a>
+      <a href="#" class="text-pink-400 hover:text-pink-500"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="#" class="text-cyan-400 hover:text-cyan-500"><i class="fab fa-twitter"></i> Twitter</a>
+    </div>
+  </footer>
+
+  <!-- Font Awesome for Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

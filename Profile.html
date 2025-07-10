@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ParkSafe Profile</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2d9d6c6a3.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-[#0f172a] text-white min-h-screen flex flex-col">    
+
+  <!-- Navbar -->
+  <nav class="flex items-center justify-between p-4 bg-gray-900 shadow-md">
+    <div class="flex items-center space-x-2">
+      <i class="fas fa-map-marker-alt text-white text-xl"></i>
+      <span class="text-xl font-bold text-white">ParkSafe India</span>
+    </div>
+    <a href="index.html" class="text-sm bg-blue-600 px-4 py-2 rounded hover:bg-blue-700 transition">🏠 Home</a>
+  </nav>
+
+  <!-- Profile Section -->
+  <section class="py-10 px-4 md:px-10">
+    <div class="max-w-5xl mx-auto">
+
+      <!-- User Info Card -->
+      <div class="bg-black p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 flex flex-col md:flex-row items-center gap-6 mb-10">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEyGsNuDqyerfp3ctTVlyJGbehffbznDO4Vg&s" alt="User" class="rounded-full w-16 h-16">
+          <h2 class="text-2xl font-bold">Titli Nath</h2>
+          <p class="text-gray-400">Email: titli@example.com</p>
+          <p class="text-gray-400">User ID: #PSI-1027</p>
+          <button onclick="openModal()" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition duration-300">Edit Profile</button>
+        </div>
+      </div>
+
+      <!-- Activity Summary -->
+      <div class="grid md:grid-cols-3 gap-6 mb-10">
+        <div class="bg-black p-5 rounded-xl text-center shadow hover:shadow-xl transition">
+          <h3 class="text-xl font-semibold">Bookings Made</h3>
+          <p class="text-3xl font-bold mt-2 text-green-400">14</p>
+        </div>
+        <div class="bg-black p-5 rounded-xl text-center shadow hover:shadow-xl transition">
+          <h3 class="text-xl font-semibold">Ongoing</h3>
+          <p class="text-3xl font-bold mt-2 text-yellow-400">1</p>
+        </div>
+        <div class="bg-black p-5 rounded-xl text-center shadow hover:shadow-xl transition">
+          <h3 class="text-xl font-semibold">Completed</h3>
+          <p class="text-3xl font-bold mt-2 text-blue-400">12</p>
+        </div>
+      </div>
+
+      <!-- Progress & Goals -->
+      <div class="grid md:grid-cols-2 gap-6 mb-10">
+        <div class="bg-black p-6 rounded-xl shadow hover:shadow-2xl text-center transition">
+          <h3 class="text-xl font-semibold mb-4">Your Level</h3>
+          <p class="text-4xl text-indigo-400 font-bold">Level 3</p>
+          <div class="relative w-32 h-32 mx-auto my-4">
+            <svg class="absolute top-0 left-0 w-full h-full" viewBox="0 0 36 36">
+              <path fill="none" stroke="#374151" stroke-width="4" d="M18 2.0845
+                a 15.9155 15.9155 0 0 1 0 31.831
+                a 15.9155 15.9155 0 0 1 0 -31.831"/>
+              <path fill="none" stroke="#4ade80" stroke-width="4" stroke-dasharray="75, 100" d="M18 2.0845
+                a 15.9155 15.9155 0 0 1 0 31.831
+                a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            </svg>
+            <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center text-lg font-semibold text-white">75%</div>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex flex-col gap-4 justify-center">
+            <button onclick="window.location.href='Goal.html'" class="flex-1 px-6 py-3 bg-green-600 text-white rounded-xl shadow hover:bg-green-700 transition text-lg font-medium">🎯 View Goals</button>
+            <button onclick="window.location.href='Shareachieve.html'" class="flex-1 px-6 py-3 bg-yellow-400 text-black rounded-xl shadow hover:bg-yellow-500 transition text-lg font-medium">📤 Share Achievements</button>
+          <button onclick="logoutUser()" class="flex-1 px-6 py-3 bg-red-600 text-white rounded-xl shadow hover:bg-red-700 transition text-lg font-medium">🚪 Log Out</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-center py-6 mt-10">
+    <div class="flex justify-center gap-4 mb-2 text-xl">
+      <a href="#"><i class="fab fa-instagram hover:text-pink-500 transition"></i></a>
+      <a href="#"><i class="fab fa-facebook hover:text-blue-500 transition"></i></a>
+      <a href="#"><i class="fab fa-twitter hover:text-blue-400 transition"></i></a>
+    </div>
+    <p class="text-sm">© 2025 ParkSafe India. All rights reserved.</p>
+  </footer>
+
+  <!-- Edit Profile Modal -->
+  <div id="editModal" class="fixed inset-0 bg-black bg-opacity-60 hidden justify-center items-center z-50">
+    <div class="bg-gray-900 text-white p-6 rounded-xl w-80 shadow-lg">
+      <h2 class="text-xl font-semibold mb-4">Edit Profile</h2>
+      <form id="editForm">
+        <label class="block mb-2">Name:
+          <input type="text" class="w-full p-2 rounded bg-gray-700 text-white" value="Titli Nath" required>
+        </label>
+        <label class="block mb-2">Email:
+          <input type="email" class="w-full p-2 rounded bg-gray-700 text-white" value="titli@example.com" required>
+        </label>
+        <div class="flex justify-end gap-2 mt-4">
+          <button type="button" onclick="closeModal()" class="px-3 py-1 rounded bg-gray-600 hover:bg-gray-700">Cancel</button>
+          <button type="submit" class="px-3 py-1 rounded bg-blue-600 hover:bg-blue-700">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('editModal');
+
+    function openModal() {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeModal() {
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
+    }
+
+    document.getElementById('editForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert("Profile updated successfully!");
+      closeModal();
+    });
+
+    function goToGoals() {
+      window.location.href = "mybookings.html";
+    }
+
+    function goToShareAchievements() {
+      window.location.href = "notification.html";
+    }
+
+    function logoutUser() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

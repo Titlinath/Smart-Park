@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Parking Dashboard</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#0F172A',
+              accent: '#38BDF8',
+              softWhite: '#F8FAFC',
+              electricLime: '#A3E635',
+              dark: '#1E293B'
+            },
+            fontFamily: {
+              sans: ['Segoe UI', 'sans-serif']
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: 0, transform: 'translateY(20px)' },
+                '100%': { opacity: 1, transform: 'translateY(0)' }
+              }
+            },
+            animation: {
+              fadeInUp: 'fadeInUp 0.8s ease-out'
+            }
+          }
+        }
+      };
+    </script>
+  </head>
+  <body class="bg-softWhite font-sans">
+    <div class="flex h-screen">
+      <!-- Sidebar -->
+      <aside class="w-64 bg-primary text-softWhite p-6 flex flex-col gap-6">
+        <h1 class="text-2xl font-bold mb-4">
+          <i class="bi bi-car-front-fill text-electricLime"></i> SmartPark
+        </h1>
+        <nav class="flex flex-col gap-4">
+          <a href="#" class="hover:text-electricLime flex items-center gap-2">
+            <i class="bi bi-speedometer2"></i> Dashboard
+          </a>
+          <a href="Bookslot.html" class="hover:text-electricLime flex items-center gap-2">
+            <i class="bi bi-geo-alt-fill"></i> Book a Slot
+          </a>
+          <a href="Mybooking.html" class="hover:text-electricLime flex items-center gap-2">
+            <i class="bi bi-clock-history"></i> My Bookings
+          </a>
+          <a href="#" class="hover:text-electricLime flex items-center gap-2">
+            <i class="bi bi-box-arrow-right"></i> Logout
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 p-8 overflow-y-auto">
+        <!-- Welcome -->
+        <div class="mb-8 animate-fadeInUp">
+          <h2 class="text-3xl font-bold text-dark">Welcome Back!</h2>
+          <p class="text-gray-600 mt-1">Your personalized smart parking dashboard.</p>
+        </div>
+
+        <!-- Dashboard Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 animate-fadeInUp">
+
+    <!-- Manage Parking -->
+    <a href="Managepark.html" class="block">
+      <div class="bg-dark text-softWhite p-6 rounded-xl shadow-xl hover:scale-105 transition">
+        <div class="flex items-center gap-4">
+          <i class="bi bi-geo-fill text-electricLime text-3xl"></i>
+          <div>
+            <h3 class="text-xl font-semibold">Manage Parking Spots</h3>
+            <p class="text-sm text-gray-300">See your booked spots and live status.</p>
+          </div>
+        </div>
+      </div>
+    </a>
+  
+    <!-- Reports & History -->
+    <a href="Report.html" class="block">
+      <div class="bg-dark text-softWhite p-6 rounded-xl shadow-xl hover:scale-105 transition">
+        <div class="flex items-center gap-4">
+          <i class="bi bi-graph-up text-electricLime text-3xl"></i>
+          <div>
+            <h3 class="text-xl font-semibold">Reports & History</h3>
+            <p class="text-sm text-gray-300">Track your usage and booking summary.</p>
+          </div>
+        </div>
+      </div>
+    </a>
+  
+    <!-- Why People Love Us -->
+    <a href="Whyppl.html" class="block">
+      <div class="bg-dark text-softWhite p-6 rounded-xl shadow-xl hover:scale-105 transition">
+        <div class="flex items-center gap-4">
+          <i class="bi bi-star-fill text-electricLime text-3xl"></i>
+          <div>
+            <h3 class="text-xl font-semibold">Why People Love Us</h3>
+            <p class="text-sm text-gray-300">Fast, legal & secure parking solutions.</p>
+          </div>
+        </div>
+      </div>
+    </a>
+  
+  </div>
+  
+        <!-- Review Section -->
+        <section class="mb-12 animate-fadeInUp">
+          <h3 class="text-2xl font-bold text-dark mb-4">User Reviews</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-softWhite p-4 rounded-xl shadow-lg">
+              <p class="italic">“This app saved me from a fine during Durga Puja. Super helpful!”</p>
+              <p class="mt-2 font-bold">– Priya Sharma</p>
+            </div>
+            <div class="bg-softWhite p-4 rounded-xl shadow-lg">
+              <p class="italic">“Love the real-time updates. No more driving around endlessly.”</p>
+              <p class="mt-2 font-bold">– Rajeev Verma</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="animate-fadeInUp">
+          <h3 class="text-2xl font-bold text-dark mb-4">What Makes SmartPark Different?</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-primary text-softWhite p-6 rounded-xl shadow-md">
+              <h4 class="text-lg font-semibold mb-2">Live Parking Availability</h4>
+              <p class="text-sm">Always know where space is available near you.</p>
+            </div>
+            <div class="bg-primary text-softWhite p-6 rounded-xl shadow-md">
+              <h4 class="text-lg font-semibold mb-2">Safe & Verified Zones</h4>
+              <p class="text-sm">We only show safe, traffic-rule friendly parking locations.</p>
+            </div>
+            <div class="bg-primary text-softWhite p-6 rounded-xl shadow-md">
+              <h4 class="text-lg font-semibold mb-2">Simple Booking Process</h4>
+              <p class="text-sm">Book, pay, and park with ease from your dashboard.</p>
+            </div>
+            <div class="bg-primary text-softWhite p-6 rounded-xl shadow-md">
+              <h4 class="text-lg font-semibold mb-2">24x7 User Support</h4>
+              <p class="text-sm">We’re here whenever you need help with parking.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-16 text-center text-sm text-gray-500">
+          <hr class="my-4 border-gray-300" />
+          <p>© 2025 SmartPark | Made for better parking experiences 🚗</p>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>

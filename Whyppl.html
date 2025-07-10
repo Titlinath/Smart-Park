@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why People Choose Us | Smart Park India</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0F172A',
+            accent: '#38BDF8',
+            softWhite: '#F8FAFC',
+            electricLime: '#A3E635',
+            dark: '#1E293B'
+          },
+          fontFamily: {
+            sans: ['Segoe UI', 'sans-serif']
+          },
+          animation: {
+            fadeIn: 'fadeIn 1.5s ease-in',
+            bounceIn: 'bounceIn 1s ease-out'
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' }
+            },
+            bounceIn: {
+              '0%, 20%, 40%, 60%, 80%, 100%': {
+                transform: 'translateY(0)'
+              },
+              '50%': {
+                transform: 'translateY(-10px)'
+              }
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-softWhite text-dark font-sans">
+  <!-- Hero Section -->
+  <section class="bg-primary text-softWhite py-20 text-center animate-fadeIn">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Why Choose Smart Park India?</h1>
+    <p class="text-lg md:text-xl max-w-3xl mx-auto">Your stress-free parking companion, built for real-life challenges in Indian cities.</p>
+  </section>
+
+  <!-- Floating Info Box -->
+  <aside class="fixed top-1/3 right-0 bg-electricLime text-dark p-4 shadow-xl rounded-l-lg z-50 w-72">
+    <h3 class="font-bold text-lg mb-2">Smart Park vs Traditional</h3>
+    <ul class="text-sm space-y-1">
+      <li><strong>Availability:</strong> Live GPS vs Unknown</li>
+      <li><strong>Booking:</strong> One-click vs Manual</li>
+      <li><strong>Safety:</strong> Verified zones vs Risky</li>
+      <li><strong>Traffic View:</strong> Real-time maps vs None</li>
+    </ul>
+  </aside>
+
+  <!-- Features Section -->
+  <section class="py-16 bg-softWhite px-6">
+    <h2 class="text-3xl font-bold text-center mb-8">Features That Make Us Unique</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white shadow-xl rounded-xl p-6 text-center hover:scale-105 transition animate-bounceIn">
+        <i class="bi bi-geo-alt-fill text-4xl text-accent mb-4"></i>
+        <h3 class="font-semibold text-xl mb-2">Location-Based Results</h3>
+        <p>Get nearest parking based on your GPS location with real-time slot view.</p>
+      </div>
+      <div class="bg-white shadow-xl rounded-xl p-6 text-center hover:scale-105 transition animate-bounceIn">
+        <i class="bi bi-calendar-check text-4xl text-electricLime mb-4"></i>
+        <h3 class="font-semibold text-xl mb-2">Pre-book Slots</h3>
+        <p>Book your slot in advance during festivals like Durga Puja & avoid hassle.</p>
+      </div>
+      <div class="bg-white shadow-xl rounded-xl p-6 text-center hover:scale-105 transition animate-bounceIn">
+        <i class="bi bi-shield-lock text-4xl text-accent mb-4"></i>
+        <h3 class="font-semibold text-xl mb-2">Trusted Security</h3>
+        <p>All our partners are verified & mapped with police-safe zones.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Example Use Case -->
+  <section class="bg-primary text-softWhite py-12 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Short Example</h2>
+      <p class="mb-4">An IT employee from Salt Lake searches during Durga Puja night, sees live traffic blocks, finds an open secure parking zone, pre-books & pays, saving time and avoiding challan fines.</p>
+    </div>
+  </section>
+
+  <!-- Research Links -->
+  <section class="py-16 px-6 bg-softWhite">
+    <h2 class="text-3xl font-bold text-center mb-8">Relevant Research & Articles</h2>
+    <div class="space-y-6">
+      <div class="bg-white p-6 shadow-md rounded-xl">
+        <h3 class="text-xl font-semibold">[NITI Aayog Report] Urban Transport India 2023</h3>
+        <p class="text-sm mb-2">Summary: 38% of urban traffic delays are due to unorganized parking and low space optimization.</p>
+        <a href="https://niti.gov.in" class="text-accent underline">Read full article</a>
+      </div>
+      <div class="bg-white p-6 shadow-md rounded-xl">
+        <h3 class="text-xl font-semibold">Smart Cities Case Study - Bhopal</h3>
+        <p class="text-sm mb-2">Quote Highlight: "Digitized parking saved nearly 40% of traffic congestion in hotspots."</p>
+        <a href="https://smartnet.niua.org" class="text-accent underline">Explore case study</a>
+      </div>
+      <div class="bg-white p-6 shadow-md rounded-xl">
+        <h3 class="text-xl font-semibold">McKinsey India: Urban Mobility Trends</h3>
+        <p class="text-sm mb-2">Insight: "Smart parking can save cities nearly ₹1200 crore annually in fuel wastage alone."</p>
+        <a href="https://www.mckinsey.com/featured-insights/india" class="text-accent underline">Learn more</a>
+      </div>
+      <div class="bg-white p-6 shadow-md rounded-xl">
+        <h3 class="text-xl font-semibold">Festival Rush & Urban Parking — Times of India</h3>
+        <p class="text-sm mb-2">Summary: "Kolkata faces severe parking chaos during Durga Puja; lack of space management causes over 500 challans per hour in hotspots."</p>
+        <a href="https://timesofindia.indiatimes.com/city/kolkata" class="text-accent underline">Read full article</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="bg-white py-12 px-6">
+    <h2 class="text-3xl font-bold text-center mb-6">FAQs</h2>
+    <div class="max-w-2xl mx-auto space-y-4">
+      <details class="bg-softWhite p-4 rounded-xl shadow-md cursor-pointer">
+        <summary class="font-semibold text-lg">Do I need to install anything?</summary>
+        <p class="mt-2 text-sm">No, it's fully web-based. Works smoothly on mobile too!</p>
+      </details>
+      <details class="bg-softWhite p-4 rounded-xl shadow-md cursor-pointer">
+        <summary class="font-semibold text-lg">Is it safe to use?</summary>
+        <p class="mt-2 text-sm">Yes! We partner with verified spots & update data frequently.</p>
+      </details>
+      <details class="bg-softWhite p-4 rounded-xl shadow-md cursor-pointer">
+        <summary class="font-semibold text-lg">Can I cancel my booking?</summary>
+        <p class="mt-2 text-sm">Yes, cancellation is free up to 10 minutes before your scheduled time.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Testimonial Section -->
+  <section class="bg-accent text-dark py-16 px-6">
+    <h2 class="text-3xl font-bold text-center mb-8">What Our Users Say</h2>
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-white p-6 rounded-xl shadow-lg">
+        <p class="italic">"I parked stress-free in North Kolkata during the festival chaos! Brilliant app!"</p>
+        <p class="mt-2 font-bold">— Sanchita, Kolkata</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-lg">
+        <p class="italic">"Helped me during late-night emergencies — I love how easy it is to use."</p>
+        <p class="mt-2 font-bold">— Ramesh, Bengaluru</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-electricLime text-primary py-12 px-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Park Smarter?</h2>
+      <p class="text-lg md:text-xl mb-6">Join thousands of drivers across India who trust Smart Park for safe, fast, and hassle-free parking every day.</p>
+      <a href="Bookslot.html" class="inline-block bg-primary text-softWhite font-semibold text-lg px-8 py-3 rounded-full shadow-lg hover:bg-dark transition">Get Started Today</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-softWhite text-center py-6 mt-12">
+    <p class="text-sm">© 2025 Smart Park India — All Rights Reserved</p>
+  </footer>
+</body>
+
+</html>

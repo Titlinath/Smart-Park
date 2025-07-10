@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Park - Review Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+  <script>
+    function submitReview(event) {
+      event.preventDefault();
+      alert("Thank you for your review! 🌟");
+      document.getElementById("review-form").reset();
+    }
+  </script>
+  <style>
+    .handwritten {
+      font-family: 'Shadows Into Light', cursive;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-blue-900 to-gray-900 text-white min-h-screen flex flex-col">
+  <!-- Header Navbar -->
+  <header class="flex justify-between items-center p-4 bg-gray-800 shadow-xl">
+    <h1 class="text-2xl font-bold text-white">Smart Park</h1>
+    <a href="dashboard.html" class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-gray-900 font-bold py-2 px-4 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
+      Dashboard
+    </a>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto px-4 py-8">
+    <h2 class="text-4xl font-bold text-center mb-10 text-yellow-400">Your Experience Matters</h2>
+
+    <form id="review-form" onsubmit="submitReview(event)" class="space-y-10">
+      <!-- User Review -->
+      <section class="bg-gray-800 p-6 rounded-2xl shadow-2xl">
+        <h3 class="text-2xl font-semibold mb-4 text-cyan-400">User Review</h3>
+        <div class="grid gap-4 md:grid-cols-2">
+          <input type="text" name="username" required placeholder="Your Name" class="p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400">
+          <input type="email" name="email" required placeholder="Your Email" class="p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400">
+          <div class="col-span-2">
+            <label class="block mb-2 text-sm text-gray-300">Rating:</label>
+            <select name="user-rating" required class="w-full p-3 rounded-lg bg-gray-700 text-white">
+              <option value="">Rate us (1-5 Stars)</option>
+              <option value="1">⭐</option>
+              <option value="2">⭐⭐</option>
+              <option value="3">⭐⭐⭐</option>
+              <option value="4">⭐⭐⭐⭐</option>
+              <option value="5">⭐⭐⭐⭐⭐</option>
+            </select>
+          </div>
+          <textarea name="message" rows="2" placeholder="Write in your own words (short note)" class="handwritten p-3 rounded-lg bg-gray-700 text-white col-span-2"></textarea>
+          <textarea name="details" rows="4" placeholder="Share what went well, and what could be improved" class="p-3 rounded-lg bg-gray-700 text-white col-span-2"></textarea>
+        </div>
+      </section>
+
+      <!-- Driver Review -->
+      <section class="bg-gray-800 p-6 rounded-2xl shadow-2xl">
+        <h3 class="text-2xl font-semibold mb-4 text-green-400">Driver Review</h3>
+        <div class="grid gap-4 md:grid-cols-2">
+          <input type="text" name="driver-name" required placeholder="Driver's Name" class="p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400">
+          <input type="text" name="car-info" placeholder="Trip ID or Car Details (Optional)" class="p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400">
+          <div class="col-span-2">
+            <label class="block mb-2 text-sm text-gray-300">Driver Rating:</label>
+            <select name="driver-rating" required class="w-full p-3 rounded-lg bg-gray-700 text-white">
+              <option value="">Rate the driver (1-5 Stars)</option>
+              <option value="1">⭐</option>
+              <option value="2">⭐⭐</option>
+              <option value="3">⭐⭐⭐</option>
+              <option value="4">⭐⭐⭐⭐</option>
+              <option value="5">⭐⭐⭐⭐⭐</option>
+            </select>
+          </div>
+          <textarea name="driver-feedback" rows="3" placeholder="Was the driver helpful, polite, punctual?" class="p-3 rounded-lg bg-gray-700 text-white col-span-2"></textarea>
+        </div>
+      </section>
+
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button type="submit" class="bg-gradient-to-r from-emerald-400 to-teal-600 hover:from-teal-500 hover:to-emerald-700 text-gray-900 font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
+          Submit Review
+        </button>
+      </div>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-center py-4 mt-10 text-sm text-gray-400">
+    &copy; 2025 Smart Park. All rights reserved.
+  </footer>
+</body>
+
+</html>
